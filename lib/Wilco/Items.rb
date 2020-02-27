@@ -15,6 +15,10 @@ class Wilco::Item
     @@all
   end
 
+  def self.valid_number?(num)
+    num.to_i > 0 && num.to_i <= all.size
+  end
+
   def self.find_by_index(index)
     @@all[index]
   end

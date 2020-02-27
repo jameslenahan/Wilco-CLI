@@ -34,10 +34,10 @@ class Wilco::CLI
     puts "Please select the concert number you wish to see."
     input = gets.strip
 
-    if input.to_i > 0
+    if Wilco::Item.valid_number?(input)
       items_choice = Wilco::Item.find_by_index(input.to_i - 1)
       puts ""
-      puts "The greatest band in the world will be gracing the following stage:"
+      puts "The greatest band in the world will be gracing the following stages:"
       puts ""
       puts "#{items_choice.name}"
       puts "#{items_choice.date}"
@@ -45,8 +45,9 @@ class Wilco::CLI
       puts "#{items_choice.product_URL}"
       puts ""
       menu
+
     elsif
-    input == "exit"
+      input == "exit"
       puts ""
       puts "Thanks for checking out this awesome scraper!"
       puts ""
