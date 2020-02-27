@@ -1,6 +1,6 @@
 #!require '/usr/bin/env ruby'
 
 require "bundler/setup"
-require "SolidSound.rb"
+require "Wilco.rb"
 
 Wilco::CLI.new.call

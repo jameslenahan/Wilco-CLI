@@ -17,7 +17,7 @@ class Wilco::CLI
     input = gets.strip
     if input == "list"
       puts ""
-      items = Wilco::Item.all
+      items = Wilco::Concerts.all
       items.each.with_index(1) {|item, index| puts "#{index}. #{item.name}"}
     elsif input == "exit"
       system "clear"
@@ -34,15 +34,15 @@ class Wilco::CLI
     puts "Please select the concert number you wish to see."
     input = gets.strip
 
-    if Wilco::Item.valid_number?(input)
-      items_choice = Wilco::Item.find_by_index(input.to_i - 1)
+    if Wilco::Concerts.valid_number?(input)
+      items_choice = Wilco::Concerts.find_by_index(input.to_i - 1)
       puts ""
       puts "The greatest band in the world will be gracing the following stages:"
       puts ""
       puts "#{items_choice.name}"
       puts "#{items_choice.date}"
       puts "For tickets and more information, please visit:"
-      puts "#{items_choice.product_URL}"
+      puts "#{items_choice.concert_URL}"
       puts ""
       menu
 
@@ -53,7 +53,8 @@ class Wilco::CLI
       puts ""
       system "clear"
     else
-      puts "Please try again."
+      puts "Unfortunately, Wilco does not have that many upcoming shows. Please try again!"
+      puts "Enter either 'exit' to exit, or the corresponding number to a show above."
       menu
     end
   end

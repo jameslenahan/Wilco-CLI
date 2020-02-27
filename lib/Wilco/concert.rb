@@ -1,13 +1,13 @@
 
-class Wilco::Item
-  attr_accessor :name, :date, :product_URL
+class Wilco::Concerts
+  attr_accessor :name, :date, :concert_URL
 
   @@all = []
 
-  def initialize(name, date, product_URL)
+  def initialize(name, date, concert_URL)
     @name = name
     @date = date
-    @product_URL = product_URL
+    @concert_URL = concert_URL
     @@all << self
   end
 
